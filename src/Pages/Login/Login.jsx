@@ -1,10 +1,23 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/login/login.svg";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/authProviders";
 
 const Login = () => {
+    const {loginUser} = useContext(AuthContext);
 
     const handleForm = event => {
         event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        loginUser(email, password)
+        .then(res => {
+            const result = res.user;
+            console.log(result);
+        })
+        .then(err => console.log(err))
+        
     }
 
     return (
