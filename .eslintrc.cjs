@@ -16,5 +16,8 @@ module.exports = {
             "warn",
             { allowConstantExport: true },
         ],
+        // "rules": {
+        //     "rule-to-disable": "off"
+        //   }
     },
 };
